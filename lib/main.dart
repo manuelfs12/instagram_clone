@@ -46,7 +46,7 @@ class InstagramFeed extends StatelessWidget {
             onPressed: () {
               print('You just tapped the Camera');
             },
-            iconSize: 35.0,
+            iconSize: 30.0,
           ),
         ),
         title: Image.asset('images/instagram-logo-white.png', fit: BoxFit.cover,),
@@ -57,16 +57,16 @@ class InstagramFeed extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: _padding10),
             child: IconButton(
-              icon: const Icon(Icons.arrow_forward),
+              icon: const Icon(Icons.send),
               onPressed: () {
                 print('You pressed DM');
               },
-              iconSize: 35.0,
+              iconSize: 30.0,
             ),
           ),
         ],
       ),
-      body: Container(),
+      body: Feed(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         iconSize: 30.0,
@@ -100,6 +100,55 @@ class InstagramFeed extends StatelessWidget {
     );
   }
 }
+
+class Feed extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black87,
+        title: Container(
+          alignment: Alignment.centerLeft,
+          child: InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () {
+              print('Clicked name -> Go to User Profile');
+            },
+            child: Text('User1'),
+          ),
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: _padding10),
+          child: IconButton(
+            icon: Icon(Icons.account_circle),
+            iconSize: 40.0,
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onPressed: () {
+              print('Clicked avatar -> Go to user profile');
+            },
+          ),
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: _padding10),
+            child: IconButton(
+              icon: Icon(Icons.linear_scale),
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onPressed: () {
+                print("Open the block user menu");
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
 
 
