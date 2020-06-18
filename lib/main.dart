@@ -148,17 +148,16 @@ class Feed extends StatelessWidget {
       ),
       body: Container(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+//          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
                 return Container(
-                  alignment: Alignment.topCenter,
+//                  alignment: Alignment.topCenter,
                   height: constraints.maxHeight - appBar.preferredSize.height,
                   width: MediaQuery.of(context).size.width,
                   child: Container(
                       child: Column(
-
                         children: <Widget>[
                           Image.asset('images/instagram-post.png'),
                           Row(
@@ -199,23 +198,79 @@ class Feed extends StatelessWidget {
                                     size: 35.0,
                                   ),
                                   onPressed: () {
-                                    print('You want to comment');
+                                    print('You want to share');
                                   },
                                 ),
                               ),
                               Container(
                                 child: IconButton(
                                   icon: Icon(
-                                    Icons.linear_scale,
+                                    Icons.bookmark_border,
                                     color: Colors.white,
                                     size: 35.0,
                                   ),
                                   onPressed: () {
-                                    print('You want to comment');
+                                    print('You want to save');
                                   },
                                 ),
                               ),
                             ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: _padding10, top: _padding10),
+                            child: Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(left: _padding10),
+                                  child: Text(
+                                    '987 likes',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0, top: _padding10),
+                            child: Row(
+                              children: <Widget>[
+                                Text(
+                                  'User1',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5.0),
+                                  child: Text(
+                                    'Super cool caption here.',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0, top: 10.0),
+                            child: Row(
+                              children: <Widget>[
+                                Text(
+                                  'View all 148 comments',
+                                  style: TextStyle(
+                                    color: Colors.grey[400],
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
