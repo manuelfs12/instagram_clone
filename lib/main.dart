@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const _padding10 = 10.0;
+
 void main() {
   runApp(MyApp());
 }
@@ -36,30 +38,65 @@ class InstagramFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      appBar: AppBar(
-//        title: Center(
-//          child: Text(
-//            'Instagram',
-//            style: TextStyle(color: Colors.black),
-//          ),
-//        ),
-//        backgroundColor: Colors.white,
-//        elevation: 5.0,
-//        actions: <Widget>[
-//          IconButton(
-////            TODO: Change the icon to the correct one.
-//            icon: const Icon(Icons.arrow_forward),
-//            onPressed: () {print('You pressed the DM');},
-//            alignment: Alignment.center,
-//            color: Colors.black,
-//          ),
-//          IconButton(
-//            icon: const Icon(Icons.camera_alt),
-//            onPressed: () {print('You pressed the Camera');},
-//            color: Colors.black,
-//          ),
-//        ],
-//      ),
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: _padding10),
+          child: IconButton(
+            icon: const Icon(Icons.camera_alt),
+            onPressed: () {
+              print('You just tapped the Camera');
+            },
+            iconSize: 35.0,
+          ),
+        ),
+        title: Image.asset('images/instagram-logo-white.png', fit: BoxFit.cover,),
+        centerTitle: true,
+        backgroundColor: Colors.black87,
+        elevation: 6.0,
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: _padding10),
+            child: IconButton(
+              icon: const Icon(Icons.arrow_forward),
+              onPressed: () {
+                print('You pressed DM');
+              },
+              iconSize: 35.0,
+            ),
+          ),
+        ],
+      ),
+      body: Container(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        iconSize: 30.0,
+        backgroundColor: Colors.black87,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        elevation: 5.0,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_box),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_border),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            title: Text(''),
+          ),
+        ],
+      ),
     );
   }
 }
