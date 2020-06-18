@@ -102,6 +102,7 @@ class InstagramFeed extends StatelessWidget {
 }
 
 class Feed extends StatelessWidget {
+  var appBar = AppBar();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,6 +145,86 @@ class Feed extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      body: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return Container(
+                  alignment: Alignment.topCenter,
+                  height: constraints.maxHeight - appBar.preferredSize.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: Container(
+                      child: Column(
+
+                        children: <Widget>[
+                          Image.asset('images/instagram-post.png'),
+                          Row(
+                            children: <Widget>[
+//                              Heart Button
+                              Padding(
+                                padding: const EdgeInsets.only(left: _padding10),
+                                child: Container(
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.favorite_border,
+                                      color: Colors.white,
+                                      size: 35.0,
+                                    ),
+                                    onPressed: () {
+                                      print('You liked a picture!');
+                                    },
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.chat_bubble_outline,
+                                    color: Colors.white,
+                                    size: 35.0,
+                                  ),
+                                  onPressed: () {
+                                    print('You want to comment');
+                                  },
+                                ),
+                              ),
+                              Container(
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.send,
+                                    color: Colors.white,
+                                    size: 35.0,
+                                  ),
+                                  onPressed: () {
+                                    print('You want to comment');
+                                  },
+                                ),
+                              ),
+                              Container(
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.linear_scale,
+                                    color: Colors.white,
+                                    size: 35.0,
+                                  ),
+                                  onPressed: () {
+                                    print('You want to comment');
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
