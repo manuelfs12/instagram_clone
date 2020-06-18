@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 const _padding10 = 10.0;
 
@@ -56,12 +57,15 @@ class InstagramFeed extends StatelessWidget {
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: _padding10),
-            child: IconButton(
-              icon: const Icon(Icons.send),
-              onPressed: () {
-                print('You pressed DM');
-              },
-              iconSize: 30.0,
+            child: Transform.rotate(
+              angle: 320.0 * math.pi / 180,
+              child: IconButton(
+                icon: const Icon(Icons.send),
+                onPressed: () {
+                  print('You pressed DM');
+                },
+                iconSize: 30.0,
+              ),
             ),
           ),
         ],
@@ -102,7 +106,7 @@ class InstagramFeed extends StatelessWidget {
 }
 
 class Feed extends StatelessWidget {
-  var appBar = AppBar();
+  final appBar = AppBar();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,27 +195,33 @@ class Feed extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.send,
-                                    color: Colors.white,
-                                    size: 35.0,
+                                child: Transform.rotate(
+                                  angle: 300.0 * math.pi / 180,
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.send,
+                                      color: Colors.white,
+                                      size: 35.0,
+                                    ),
+                                    onPressed: () {
+                                      print('You want to share');
+                                    },
                                   ),
-                                  onPressed: () {
-                                    print('You want to share');
-                                  },
                                 ),
                               ),
-                              Container(
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.bookmark_border,
-                                    color: Colors.white,
-                                    size: 35.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 200.0),
+                                child: Container(
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.bookmark_border,
+                                      color: Colors.white,
+                                      size: 35.0,
+                                    ),
+                                    onPressed: () {
+                                      print('You want to save');
+                                    },
                                   ),
-                                  onPressed: () {
-                                    print('You want to save');
-                                  },
                                 ),
                               ),
                             ],
